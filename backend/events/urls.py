@@ -1,7 +1,11 @@
-from rest_framework.routers import DefaultRouter
-from .views import EventViewSet
+from django.urls import path
+from .views import EventCreateView, EventListView, ShareEventView
 
-router = DefaultRouter()
-router.register(r'events', EventViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+
+    path('', EventListView.as_view()),
+    path('create/', EventCreateView.as_view()),
+    path('share/<uuid:token>/', ShareEventView.as_view()),
+
+]
