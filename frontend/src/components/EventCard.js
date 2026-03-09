@@ -7,7 +7,13 @@ export default function EventCard({ event }) {
         <div className="card-body">
           <h5 className="card-title">{event.title}</h5>
           <p className="card-text">{event.location}</p>
-          <p className="card-text">{new Date(event.datetime).toLocaleString()}</p>
+          <p className="card-text">{new Date(event.datetime).toLocaleString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}</p>
           <Link to={`/share/${event.share_token}`} className="btn btn-primary btn-sm">Share Link</Link>
         </div>
       </div>

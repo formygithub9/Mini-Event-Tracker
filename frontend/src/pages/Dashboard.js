@@ -38,7 +38,7 @@ export default function Dashboard() {
                         ))}
                     </div>
                 ) : (
-                    <p>There are no Events...</p>
+                    <p className="text-muted">There are no Events...</p>
                 )}
 
             </div>
