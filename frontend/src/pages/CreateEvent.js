@@ -32,7 +32,8 @@ export default function CreateEvent() {
 
     return (
         <Layout>
-            <div className="col-md-6 offset-md-3">
+            <div class="container">
+                <div className="col-md-6 offset-md-3">
                 <h2>Create Event</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
@@ -49,6 +50,7 @@ export default function CreateEvent() {
                     </div>
                     <button className="btn btn-success" type="submit">Create Event</button>
                 </form>
+            </div>
             </div>
         </Layout>
     );

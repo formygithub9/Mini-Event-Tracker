@@ -15,8 +15,6 @@ export default function Dashboard() {
         if (res.ok) {
             const data = await res.json();
             setEvents(data);
-        } else {
-            // navigate('/login')
         }
     };
 
@@ -28,20 +26,21 @@ export default function Dashboard() {
         <Layout>
             <div className="container">
                 <h2>Your Events</h2>
-                {events.length>0?(
-                    <div className="mb-3">
-                    <button className="btn btn-secondary me-2" onClick={() => setFilter("")}>All</button>
-                    <button className="btn btn-success me-2" onClick={() => setFilter("upcoming")}>Upcoming</button>
-                    <button className="btn btn-warning me-2" onClick={() => setFilter("past")}>Past</button>
+                <div className="mb-3">
+                    <button className={`btn me-2 ${filter === "" ? "btn-primary" : "btn-secondary"}`} onClick={() => setFilter("")}>All</button>
+                    <button className={`btn me-2 ${filter === "upcoming" ? "btn-success" : "btn-secondary"}`} onClick={() => setFilter("upcoming")}>Upcoming</button>
+                    <button className={`btn me-2 ${filter === "past" ? "btn-warning" : "btn-secondary"}`} onClick={() => setFilter("past")}>Past</button>
                 </div>
-                ):(
+                {events.length > 0 ? (
+                    <div className="row">
+                        {events.map((e) => (
+                            <EventCard key={e.id} event={e} />
+                        ))}
+                    </div>
+                ) : (
                     <p>There are no Events...</p>
                 )}
-                <div className="row">
-                    {events.map((e) => (
-                        <EventCard key={e.id} event={e} />
-                    ))}
-                </div>
+
             </div>
         </Layout>
     );
