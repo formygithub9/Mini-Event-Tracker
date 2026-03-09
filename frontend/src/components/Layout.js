@@ -106,7 +106,7 @@ const Layout = ({ children }) => {
 
             <div>{children}</div>
 
-            <footer className='text-center py-3'>
+            <footer className='text-center py-3 fixed-bottom'>
                 <div className="container">
                     <p>&copy; Mini Event Tracker</p>
                 </div>
